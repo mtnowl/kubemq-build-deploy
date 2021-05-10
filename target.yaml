@@ -1,0 +1,23 @@
+apiVersion: core.k8s.kubemq.io/v1alpha1
+kind: KubemqConnector
+metadata:
+  name: kubemq-targets
+  namespace: kubemq
+spec:
+  config: |
+    bindings:
+    - id: j9ngrpvazqv7kiig
+      name: redis-target
+      properties: {}
+      source:
+        kind: kubemq.query
+        properties:
+          address: kubemq-cluster-grpc.kubemq:50000
+          channel: redis
+      target:
+        kind: cache.redis
+        properties:
+          url: redis://redis-svc.redis:6379
+  replicas: 1
+  service_type: ClusterIP
+  type: targets

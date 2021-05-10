@@ -1,0 +1,22 @@
+curl --location --request POST 'http://172.21.44.18:30000/redis' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "metadata": {
+    "key": "users",
+    "method": "set"
+  },
+  "data": {
+      "data":"1234"
+  }
+}'
+
+
+curl --location --request POST 'http://172.21.44.18:30000/redis' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "metadata": {
+    "key": "users",
+    "field": "data",
+    "method": "get"  }
+  a
+}'
